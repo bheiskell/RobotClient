@@ -1,0 +1,1182 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GameClientLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:GameClient.AngleExtensions">
+            <summary>
+            Conversion methods for float to promote type to Radians or Degrees
+            </summary>
+        </member>
+        <member name="M:GameClient.AngleExtensions.AsRadians(System.Single)">
+            <summary>
+            Promote float value to typed Radian
+            </summary>
+            <param name="val">float value interpreted as radians</param>
+            <returns>Radians object</returns>
+        </member>
+        <member name="M:GameClient.AngleExtensions.AsDegrees(System.Single)">
+            <summary>
+            Promote float value to typed Degrees
+            </summary>
+            <param name="val">float value interpreted as degrees</param>
+            <returns>Degrees object</returns>
+        </member>
+        <member name="M:GameClient.AngleExtensions.ToRelativeVector(GameClient.Degrees)">
+            <summary>
+            Converts an angle into a unit vector pointing in the direction of the passed in angle.
+            </summary>
+            <param name="angle">The angle in degrees</param>
+            <returns>A RelativeVector oriented in the correct angle</returns>
+        </member>
+        <member name="M:GameClient.AngleExtensions.ToRelativeVector(GameClient.Radians)">
+            <summary>
+            Converts an angle into a unit vector pointing in the direction of the passed in angle.
+            </summary>
+            <param name="angle">The angle in radians</param>
+            <returns>A RelativeVector oriented in the correct angle</returns>
+        </member>
+        <member name="T:GameClient.Radians">
+            <summary>
+            A helper class to provide a more type-safe way of interacting with angles
+            </summary>
+        </member>
+        <member name="M:GameClient.Radians.#ctor(System.Single)">
+            <summary>
+            Constructs a Radians class from a float
+            </summary>
+            <param name="value">An angle in radians provided as a float</param>
+        </member>
+        <member name="M:GameClient.Radians.op_Explicit(GameClient.Radians)~System.Single">
+            <summary>
+            Explicit conversion of radians into a raw float value. This is mainly to ease use with .net System.Math functions
+            </summary>
+            <param name="rad">Radians object from which to extract float value</param>
+            <returns>float value of angle in radians</returns>
+        </member>
+        <member name="M:GameClient.Radians.op_Explicit(GameClient.Radians)~GameClient.Degrees">
+            <summary>
+            A conversion operator to convert from Radians to Degrees
+            </summary>
+            <param name="rad">Radians object to convert</param>
+            <returns>The angle in degrees</returns>
+        </member>
+        <member name="M:GameClient.Radians.ToDegrees">
+            <summary>
+            Converts the angle in radians to degrees
+            </summary>
+            <returns>The angle in degrees</returns>
+        </member>
+        <member name="M:GameClient.Radians.op_Addition(GameClient.Radians,GameClient.Radians)">
+            <summary>
+            Adds two angles together
+            </summary>
+            <param name="L">First angle</param>
+            <param name="R">Second angle</param>
+            <returns>The combined angle</returns>
+        </member>
+        <member name="M:GameClient.Radians.op_Subtraction(GameClient.Radians,GameClient.Radians)">
+            <summary>
+            Subtracts one angle from another
+            </summary>
+            <param name="L">First angle</param>
+            <param name="R">Second angle</param>
+            <returns>The difference between the two angles</returns>
+        </member>
+        <member name="M:GameClient.Radians.op_Multiply(GameClient.Radians,System.Single)">
+            <summary>
+            Scales and angle by a multiplier
+            </summary>
+            <param name="L">First angle</param>
+            <param name="R">Scale factor</param>
+            <returns>The scaled angle</returns>
+        </member>
+        <member name="M:GameClient.Radians.op_Division(GameClient.Radians,System.Single)">
+            <summary>
+            Scales and angle by a divisor
+            </summary>
+            <param name="L">First angle</param>
+            <param name="R">divisot</param>
+            <returns>The scaled angle</returns>
+        </member>
+        <member name="M:GameClient.Radians.ToString">
+            <summary>
+            Converts the angle to a readable string
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="T:GameClient.Degrees">
+            <summary>
+            A helper class to provide a more type-safe way of interacting with angles
+            </summary>
+        </member>
+        <member name="M:GameClient.Degrees.#ctor(System.Single)">
+            <summary>
+            Construct a Degrees class from a float
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:GameClient.Degrees.op_Explicit(GameClient.Degrees)~GameClient.Radians">
+            <summary>
+            A conversion operator to convert from Degrees to Radians
+            </summary>
+            <param name="deg">Degrees object to convert</param>
+            <returns>The angle in radians</returns>
+        </member>
+        <member name="M:GameClient.Degrees.ToRadians">
+            <summary>
+            Converts the angle in degrees to radians
+            </summary>
+            <returns>The angle in radians</returns>
+        </member>
+        <member name="M:GameClient.Degrees.op_Addition(GameClient.Degrees,GameClient.Degrees)">
+            <summary>
+            Adds two angles together
+            </summary>
+            <param name="L">First angle</param>
+            <param name="R">Second angle</param>
+            <returns>The combined angle</returns>
+        </member>
+        <member name="M:GameClient.Degrees.op_Subtraction(GameClient.Degrees,GameClient.Degrees)">
+            <summary>
+            Subtracts one angle from another
+            </summary>
+            <param name="L">First angle</param>
+            <param name="R">Second angle</param>
+            <returns>The difference between the two angles</returns>
+        </member>
+        <member name="M:GameClient.Degrees.op_Multiply(GameClient.Degrees,System.Single)">
+            <summary>
+            Scales and angle by a multiplier
+            </summary>
+            <param name="L">First angle</param>
+            <param name="R">Scale factor</param>
+            <returns>The scaled angle</returns>
+        </member>
+        <member name="M:GameClient.Degrees.op_Division(GameClient.Degrees,System.Single)">
+            <summary>
+            Scales and angle by a divisor
+            </summary>
+            <param name="L">First angle</param>
+            <param name="R">divisot</param>
+            <returns>The scaled angle</returns>
+        </member>
+        <member name="M:GameClient.Degrees.ToString">
+            <summary>
+            Converts the angle to a readable string
+            </summary>
+            <returns>String</returns>
+        </member>
+        <member name="T:GameClient.WeaponsSystem">
+            <summary>
+            A class that contains the necessary logic needed to use the available weapons
+            </summary>
+        </member>
+        <member name="M:GameClient.WeaponsSystem.#ctor">
+            <summary>
+            Creates a new WeaponSystem that can be attached to a BasePlayer on construction.
+            </summary>
+        </member>
+        <member name="M:GameClient.WeaponsSystem.FireRocket">
+            <summary>
+            Fires a rocket in the currently facing direction. Firing a rocket uses a small amount of energy
+            </summary>
+        </member>
+        <member name="P:GameClient.WeaponsSystem.RocketCount">
+            <summary>
+            The number of rockets available to fire at opponents
+            </summary>
+        </member>
+        <member name="P:GameClient.WeaponsSystem.CanFireRocket">
+            <summary>
+            Returns true if RocketCount > 0 and enough time has passed since the last shot fired.
+            </summary>
+        </member>
+        <member name="P:GameClient.WeaponsSystem.IsShielded">
+            <summary>
+            Returns whether or not the shield is activated and deployed enough to prevent damage
+            </summary>
+        </member>
+        <member name="E:GameClient.WeaponsSystem.OnEvaluateDanger">
+            <summary>
+            An event that gets fired periodically in order to evaluate whether or not the robot is in danger.
+            </summary>
+        </member>
+        <member name="T:GameClient.EvaluateDangerEventArgs">
+            <summary>
+            Event arguments for OnEvaluateDanger event of WeaponsSystem
+            </summary>
+        </member>
+        <member name="P:GameClient.EvaluateDangerEventArgs.ActivateShield">
+            <summary>
+            Set ActivateShield to true if shield should be deployed. Caution, extensive use of the shield might result in poor battery life, but then again, so does getting hit by rockets
+            </summary>
+        </member>
+        <member name="T:GameClient.DebugLine">
+            <summary>
+            A line for testing purposes that can be overlayed onto the floor of the game world.
+            Line drawing is not exposed to classes deriving from BasePlayer
+            </summary>
+        </member>
+        <member name="M:GameClient.DebugLine.#ctor(GameClient.AbsolutePoint,GameClient.AbsolutePoint,GameClient.DebugLine.Colors,GameClient.DebugLine.LineSize)">
+            <summary>
+            Creates a DebugLine from the given parameters
+            </summary>
+            <param name="endpoint1">A point in absolute / world space</param>
+            <param name="endpoint2">A point in absolute / world space</param>
+            <param name="color">The color of the line</param>
+            <param name="size">The size of the line</param>
+        </member>
+        <member name="F:GameClient.DebugLine.PT1">
+            <summary>
+            Endpoint1 of the line in absolute / world space
+            </summary>
+        </member>
+        <member name="F:GameClient.DebugLine.PT2">
+            <summary>
+            Endpoint2 of the line in absolute / world space
+            </summary>
+        </member>
+        <member name="F:GameClient.DebugLine.Color">
+            <summary>
+            The color of the line
+            </summary>
+        </member>
+        <member name="F:GameClient.DebugLine.Size">
+            <summary>
+            The size of the line
+            </summary>
+        </member>
+        <member name="T:GameClient.DebugLine.Colors">
+            <summary>
+            The color of the line
+            </summary>
+        </member>
+        <member name="F:GameClient.DebugLine.Colors.Red">
+            <summary>
+            #FF0000
+            </summary>
+        </member>
+        <member name="F:GameClient.DebugLine.Colors.Yellow">
+            <summary>
+            #FFFF00
+            </summary>
+        </member>
+        <member name="F:GameClient.DebugLine.Colors.Green">
+            <summary>
+            #00FF00
+            </summary>
+        </member>
+        <member name="F:GameClient.DebugLine.Colors.White">
+            <summary>
+            #FFFFFF
+            </summary>
+        </member>
+        <member name="F:GameClient.DebugLine.Colors.Black">
+            <summary>
+            #000000
+            </summary>
+        </member>
+        <member name="T:GameClient.DebugLine.LineSize">
+            <summary>
+            The size of the line drawn
+            </summary>
+        </member>
+        <member name="F:GameClient.DebugLine.LineSize.Small">
+            <summary>
+            A thin line
+            </summary>
+        </member>
+        <member name="F:GameClient.DebugLine.LineSize.Medium">
+            <summary>
+            A medium thickness line
+            </summary>
+        </member>
+        <member name="F:GameClient.DebugLine.LineSize.Large">
+            <summary>
+            A thick line
+            </summary>
+        </member>
+        <member name="T:GameClient.Objects.Star">
+            <summary>
+            The star is the sole source of points in this game. Try to capture the star and hold onto it for as long as you can to win.
+            </summary>
+        </member>
+        <member name="T:GameClient.Objects.GameObject">
+            <summary>
+            Represents an object that has been detected by your robot's sensors
+            </summary>
+        </member>
+        <member name="M:GameClient.Objects.GameObject.ToString">
+            <summary>
+            A simple formatted version of the object type and position
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GameClient.Objects.GameObject.Distance(GameClient.Objects.GameObject)">
+            <summary>
+            Calculates the distance between "this" and another game object
+            </summary>
+            <param name="obj">The other object</param>
+            <returns>The distance as a float</returns>
+        </member>
+        <member name="M:GameClient.Objects.GameObject.DistanceSquared(GameClient.Objects.GameObject)">
+            <summary>
+            Calculates the distance-squared between "this" and another game object
+            </summary>
+            <param name="obj">The other object</param>
+            <returns>The distance as a float</returns>
+        </member>
+        <member name="M:GameClient.Objects.GameObject.Distance(GameClient.Objects.GameObject,GameClient.Objects.GameObject)">
+            <summary>
+            Calculates the distance-squared between two game objects
+            </summary>
+            <param name="obj1">A game object</param>
+            <param name="obj2">Another game object</param>
+            <returns>The distance as a float</returns>
+        </member>
+        <member name="M:GameClient.Objects.GameObject.DistanceSquared(GameClient.Objects.GameObject,GameClient.Objects.GameObject)">
+            <summary>
+            Calculates the distance-squared between two game objects
+            </summary>
+            <param name="obj1">A game object</param>
+            <param name="obj2">Another game object</param>
+            <returns>The distance-squared as a float</returns>
+        </member>
+        <member name="P:GameClient.Objects.GameObject.Position">
+            <summary>
+            The position of the object in 2D space
+            </summary>
+        </member>
+        <member name="P:GameClient.Objects.GameObject.Velocity">
+            <summary>
+            The object's current velocity vector
+            </summary>
+        </member>
+        <member name="P:GameClient.Objects.GameObject.ObjectID">
+            <summary>
+            A unique identifier for the object that will be persistant between calls to SenseObjects()
+            </summary>
+        </member>
+        <member name="T:GameClient.Objects.Rocket">
+            <summary>
+            A rocket which has been fired by another player
+            </summary>
+        </member>
+        <member name="T:GameClient.BasePlayer">
+            <summary>
+            Provides the base networking functionality an an interface to talk to the server.
+            </summary>
+        </member>
+        <member name="T:GameClient.Objects.Robot">
+            <summary>
+            Another player in the game as sensed by your sensors.
+            </summary>
+        </member>
+        <member name="M:GameClient.Objects.Robot.ToString">
+            <summary>
+            A simple formatted version of the object type and position
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GameClient.Objects.Robot.IsFacing(GameClient.AbsolutePoint,GameClient.Degrees)">
+            <summary>
+            Determines if the Robot is facing a given point in 2d space
+            </summary>
+            <param name="point">An absolutely positioned point in 2d space</param>
+            <param name="degTolerance">The angle in degrees that we consider as "faceing"</param>
+            <returns>Returns true if the object is currently facing the provided point, false otherwise</returns>
+        </member>
+        <member name="M:GameClient.Objects.Robot.IsFacing(GameClient.AbsolutePoint,GameClient.Radians)">
+            <summary>
+            Determines if the Robot is facing a given point in 2d space
+            </summary>
+            <param name="point">An absolutely positioned point in 2d space</param>
+            <param name="radTolerance">The angle in radians that we consider as "faceing"</param>
+            <returns>Returns true if the object is currently facing the provided point, false otherwise</returns>
+        </member>
+        <member name="M:GameClient.Objects.Robot.IsFacing(GameClient.Objects.GameObject,GameClient.Degrees)">
+            <summary>
+            Determines if the Robot is facing a given point in 2d space
+            </summary>
+            <param name="obj">The Robot we are trying to determine if the robot is facing</param>
+            <param name="degTolerance">The angle in degrees that we consider as "faceing"</param>
+            <returns>Returns true if the object is currently facing the provided point, false otherwise</returns>
+        </member>
+        <member name="M:GameClient.Objects.Robot.IsFacing(GameClient.Objects.GameObject,GameClient.Radians)">
+            <summary>
+            Determines if the Robot is facing a given point in 2d space
+            </summary>
+            <param name="obj">The Robot we are trying to determine if the robot is facing</param>
+            <param name="radTolerance">The angle in radians that we consider as "faceing"</param>
+            <returns>Returns true if the object is currently facing the provided point, false otherwise</returns>
+        </member>
+        <member name="P:GameClient.Objects.Robot.Name">
+            <summary>
+            The name of the player
+            </summary>
+        </member>
+        <member name="P:GameClient.Objects.Robot.IsAlive">
+            <summary>
+            Whether or not the robot is currently alive / powered up
+            </summary>
+        </member>
+        <member name="P:GameClient.Objects.Robot.IsMoving">
+            <summary>
+            Whether or not the Robot is moving... and thus, sucking up energy
+            </summary>
+        </member>
+        <member name="P:GameClient.Objects.Robot.IsShielded">
+            <summary>
+            Whether or not the robot's shields are deployed enough to protect from damage
+            </summary>
+        </member>
+        <member name="P:GameClient.Objects.Robot.Heading">
+            <summary>
+            The heading of the robot in radians
+            </summary>
+        </member>
+        <member name="P:GameClient.Objects.Robot.BatteryLevel">
+            <summary>
+            The amount of energy available. [Range: 0-1]
+            </summary>
+        </member>
+        <member name="P:GameClient.Objects.Robot.HasStar">
+            <summary>
+            Whether or not the robot is in posession of the coveted star
+            </summary>
+        </member>
+        <member name="P:GameClient.Objects.Robot.MaxSpeed">
+            <summary>
+            The estimated MaxSpeed of the robot
+            </summary>
+        </member>
+        <member name="M:GameClient.BasePlayer.FindAndCreatePlayer">
+            <summary>
+            Find a type implementating BasePlayer in the calling assembly using reflection and create an instance of that type
+            </summary>
+            <returns>An instance of a class implementing BasePlayer or null if none were found</returns>
+        </member>
+        <member name="M:GameClient.BasePlayer.OnPlayerDied(System.Object,System.EventArgs)">
+            <summary>
+            Gets called whenever the player has died on the server.
+            </summary>
+            <param name="sender">The player that died</param>
+            <param name="e"></param>
+        </member>
+        <member name="M:GameClient.BasePlayer.OnPlayerPoweredOn(System.Object,System.EventArgs)">
+            <summary>
+            Gets called whenever the player has powered on on the server.
+            </summary>
+            <param name="sender">The player that powered on</param>
+            <param name="e"></param>
+        </member>
+        <member name="M:GameClient.BasePlayer.#ctor(GameClient.NavigationSystem)">
+            <summary>
+            Constructs a player with a navigation system, connects to the server, and creates an instance of the player on the server.
+            </summary>
+            <param name="navigationSystem">A constructed instance of a navigation system</param>
+        </member>
+        <member name="M:GameClient.BasePlayer.#ctor(GameClient.WeaponsSystem)">
+            <summary>
+            Constructs a player with weapons systems, connects to the server, and creates an instance of the player on the server.
+            </summary>
+            <param name="weaponsSystem">A constructed instance of a weapons system</param>
+        </member>
+        <member name="M:GameClient.BasePlayer.#ctor(GameClient.NavigationSystem,GameClient.WeaponsSystem)">
+            <summary>
+            Constructs a player with navigation and weapons systems, connects to the server, and creates an instance of the player on the server.
+            </summary>
+            <param name="navigationSystem">An instance of a navigation system</param>
+            <param name="weaponsSystem">A constructed instance of a weapons system</param>
+        </member>
+        <member name="M:GameClient.BasePlayer.#ctor">
+            <summary>
+            Default constructor for BasePlayer which connects to the server and creates an instance of the player on the server.
+            </summary>
+        </member>
+        <member name="M:GameClient.BasePlayer.PowerOn">
+            <summary>
+            If the robot is dead... PowerOn() will bring it back to life.
+            </summary>
+        </member>
+        <member name="M:GameClient.BasePlayer.Think">
+            <summary>
+            Gets called automatically whenever the player is alive on the server. This is a good place to stick any sort of AI logic you might have.
+            </summary>
+        </member>
+        <member name="M:GameClient.BasePlayer.SenseObjects">
+            <summary>
+            Performs a snapshot of the current game state and returns the current position of various objects in the game world.
+            </summary>
+            <returns>An enumerated snapshot of all objects and their positions, etc.</returns>
+        </member>
+        <member name="M:GameClient.BasePlayer.Finalize">
+            <summary>
+            Disconnects from the server and cleans up state.
+            </summary>
+        </member>
+        <member name="M:GameClient.BasePlayer.Dispose(System.Boolean)">
+            <summary>
+            Disconnects from the server and cleans up state.
+            </summary>
+            <param name="disposing">True indicates Dispose() was called directly.</param>
+        </member>
+        <member name="M:GameClient.BasePlayer.Dispose">
+            <summary>
+            Disconnects from the server and cleans up state.
+            </summary>
+        </member>
+        <member name="E:GameClient.BasePlayer.PlayerDied">
+            <summary>
+            Gets called whenever the player has died
+            </summary>
+        </member>
+        <member name="E:GameClient.BasePlayer.PlayerPoweredOn">
+            <summary>
+            Gets called whenever the player has powered on on the server.
+            </summary>
+        </member>
+        <member name="P:GameClient.BasePlayer.NavigationSystem">
+            <summary>
+            [Optional] Can be used to provide simple navigation control via waypoints
+            </summary>
+        </member>
+        <member name="P:GameClient.BasePlayer.WeaponsSystem">
+            <summary>
+            [Optional] A weapons system allows you to fire rockets at your opponent
+            </summary>
+        </member>
+        <member name="T:GameClient.World">
+            <summary>
+            Contains a number of game world constants
+            </summary>
+        </member>
+        <member name="F:GameClient.World.Width">
+            <summary>
+            The total width of the playing space
+            </summary>
+        </member>
+        <member name="F:GameClient.World.Height">
+            <summary>
+            The total height of the playing space
+            </summary>
+        </member>
+        <member name="F:GameClient.World.HalfWidth">
+            <summary>
+            The half-width of the playing space (from center to edge)
+            </summary>
+        </member>
+        <member name="F:GameClient.World.HalfHeight">
+            <summary>
+            The half-height of the playing space (from center to edge)
+            </summary>
+        </member>
+        <member name="F:GameClient.World.Origin">
+            <summary>
+            The center of the playing space
+            </summary>
+        </member>
+        <member name="T:GameClient.WaypointBehavior">
+            <summary>
+            Specifies how the robot should pursue a given target
+            </summary>
+        </member>
+        <member name="F:GameClient.WaypointBehavior.ArriveAt">
+            <summary>
+            Attempts to arrive at a point with close to zero velocity
+            </summary>
+        </member>
+        <member name="F:GameClient.WaypointBehavior.PassThrough">
+            <summary>
+            Moves towards a point but doesn't stop at the point
+            </summary>
+        </member>
+        <member name="T:GameClient.Waypoint">
+            <summary>
+            The combination of an absolute point and the pursuit behavior for that point
+            </summary>
+        </member>
+        <member name="M:GameClient.Waypoint.#ctor(GameClient.AbsolutePoint,GameClient.WaypointBehavior)">
+            <summary>
+            Constructs a waypoint
+            </summary>
+            <param name="p">The position the robot should hit</param>
+            <param name="behavior">The pursuit behavior for that position</param>
+        </member>
+        <member name="P:GameClient.Waypoint.Position">
+            <summary>
+            The position the robot should hit
+            </summary>
+        </member>
+        <member name="P:GameClient.Waypoint.Behavior">
+            <summary>
+            How the robot should pursue the Position
+            </summary>
+        </member>
+        <member name="T:GameClient.NavigationSystem">
+            <summary>
+            Contains the necessary logic needed to be able to move around the game world
+            </summary>
+        </member>
+        <member name="M:GameClient.NavigationSystem.#ctor">
+            <summary>
+            Creates a new NavigationSystem that can be attached to a BasePlayer on construction.
+            </summary>
+        </member>
+        <member name="M:GameClient.NavigationSystem.MoveTo(GameClient.AbsolutePoint)">
+            <summary>
+            Sets a new waypoint. The robot will attempt to move to the point (but won't try to stop there).
+            </summary>
+            <param name="point">The point you would like to move to/through</param>
+        </member>
+        <member name="M:GameClient.NavigationSystem.MoveTo(GameClient.Objects.GameObject)">
+            <summary>
+            Sets a new waypoint. The robot will attempt to move to the position of the specified GameObject (but won't try to stop there).
+            </summary>
+            <param name="obj">The object you would like to move to/through</param>
+        </member>
+        <member name="M:GameClient.NavigationSystem.ArriveAt(GameClient.AbsolutePoint)">
+            <summary>
+            Sets a new waypoint. The robot will attempt to move to and stop at the given point.
+            </summary>
+            <param name="point">The point you would like to move to</param>
+        </member>
+        <member name="M:GameClient.NavigationSystem.ArriveAt(GameClient.Objects.GameObject)">
+            <summary>
+            Sets a new waypoint. The robot will attempt to move to and stop at the position of the specified GameObject
+            </summary>
+            <param name="obj">The object you would like to move to</param>
+        </member>
+        <member name="M:GameClient.NavigationSystem.StopAndLookAt(GameClient.AbsolutePoint)">
+            <summary>
+            Stops the player and directs the robot to turn toward a given point in absolute / world space
+            </summary>
+            <param name="point">The point the robot should look at</param>
+        </member>
+        <member name="M:GameClient.NavigationSystem.StopAndLookAt(GameClient.Objects.GameObject)">
+            <summary>
+            Stops the player and directs the robot to turn toward a given game object's position in absolute / world space
+            </summary>
+            <param name="obj">The GameObject the robot should look at</param>
+        </member>
+        <member name="M:GameClient.NavigationSystem.Stop">
+            <summary>
+            Stops the player.
+            </summary>
+        </member>
+        <member name="M:GameClient.NavigationSystem.SenseObjects">
+            <summary>
+            Performs a snapshot of the current game state and returns the current position of various objects in the game world.
+            </summary>
+            <returns>An enumerated snapshot of all objects and their positions, etc.</returns>
+        </member>
+        <member name="E:GameClient.NavigationSystem.WaypointHit">
+            <summary>
+            [Deprecated] An event that gets fired whenever a waypoint is hit.
+            </summary>
+        </member>
+        <member name="T:GameClient.Objects.Bomb">
+            <summary>
+            Bomb's explode and do damage if you get too close to them
+            </summary>
+        </member>
+        <member name="P:GameClient.Objects.Bomb.IsExploding">
+            <summary>
+            Whether or not the bomb is currently exploding
+            </summary>
+        </member>
+        <member name="T:GameClient.PlayerStatus">
+            <summary>
+            A snapshot collection of various properties that exist on the robot
+            </summary>
+        </member>
+        <member name="P:GameClient.PlayerStatus.HasStar">
+            <summary>
+            Tag you're it... Having the star is a good thing, it's how you earn points. Try to hold onto it for as long as you can before dying.
+            </summary>
+        </member>
+        <member name="P:GameClient.PlayerStatus.IsAlive">
+            <summary>
+            Whether or not the player is currently alive.
+            </summary>
+        </member>
+        <member name="P:GameClient.PlayerStatus.IsMoving">
+            <summary>
+            Whether or not the player is moving, and thus, sucking up energy
+            </summary>
+        </member>
+        <member name="P:GameClient.PlayerStatus.Position">
+            <summary>
+            The current position of the player in absolute / world coordinates
+            </summary>
+        </member>
+        <member name="P:GameClient.PlayerStatus.Velocity">
+            <summary>
+            The current velocity of the player
+            </summary>
+        </member>
+        <member name="P:GameClient.PlayerStatus.BatteryLevel">
+            <summary>
+            The current battery level. [Range=0..1]
+            </summary>
+        </member>
+        <member name="P:GameClient.PlayerStatus.Heading">
+            <summary>
+            The current heading in radians
+            </summary>
+        </member>
+        <member name="P:GameClient.PlayerStatus.RocketCount">
+            <summary>
+            The number of rockets remaining
+            </summary>
+        </member>
+        <member name="P:GameClient.PlayerStatus.CanFireRocket">
+            <summary>
+            Returns true if enough time has passed since the last fired rocket and the rocket count is > 0
+            </summary>
+        </member>
+        <member name="P:GameClient.PlayerStatus.IsShielded">
+            <summary>
+            Returns true if the shield is activated enough to protect against damage
+            </summary>
+        </member>
+        <member name="P:GameClient.PlayerStatus.MaxSpeed">
+            <summary>
+            Returns the estimated maximum travel speed
+            </summary>
+        </member>
+        <member name="T:GameClient.RobotApp">
+            <summary>
+            Base application object that handles finding and loading of the BasePlayer implementation
+            </summary>
+        </member>
+        <member name="M:GameClient.RobotApp.#ctor">
+            <summary>
+            Constructs a RobotApp, finds a BasePlayer implementing class and creates an instance of that class
+            </summary>
+        </member>
+        <member name="M:GameClient.RobotApp.OnExit(System.Windows.ExitEventArgs)">
+            <summary>
+            Called on application exit and allows us to perform cleanup
+            </summary>
+            <param name="e">The exit event arguments</param>
+        </member>
+        <member name="P:GameClient.RobotApp.Player">
+            <summary>
+            The player implementation
+            </summary>
+        </member>
+        <member name="T:GameClient.IVector">
+            <summary>
+            A 2D vector or point
+            </summary>
+        </member>
+        <member name="P:GameClient.IVector.X">
+            <summary>
+            The X component of the vector
+            </summary>
+        </member>
+        <member name="P:GameClient.IVector.Y">
+            <summary>
+            The Y component of the vector
+            </summary>
+        </member>
+        <member name="T:GameClient.RelativeVector">
+            <summary>
+            A vector in the pure sense of the word. Has magnitude and direction but no position.
+            </summary>
+        </member>
+        <member name="M:GameClient.RelativeVector.#ctor(System.Single,System.Single)">
+            <summary>
+            Constructs a vector with a specific X and Y component
+            </summary>
+            <param name="X"></param>
+            <param name="Y"></param>
+        </member>
+        <member name="M:GameClient.RelativeVector.FromAngle(GameClient.Radians)">
+            <summary>
+            Returns a unit-vector in the direction of the angle provided
+            </summary>
+            <param name="Angle">An angle in radians</param>
+            <returns>A unit-vector indicating direction</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.FromAngle(GameClient.Degrees)">
+            <summary>
+            Returns a unit-vector in the direction of the heading provided
+            </summary>
+            <param name="Angle">An angle in degrees</param>
+            <returns>A unit-vector indicating direction</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.Rotate(GameClient.RelativeVector,GameClient.Radians)">
+            <summary>
+            Rotates a vector about the origin
+            </summary>
+            <param name="pt">The vector to rotate</param>
+            <param name="Angle">The rotation angle in radians</param>
+            <returns>A rotated vector</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.Rotate(GameClient.Degrees)">
+            <summary>
+            Rotates a vector about the origin
+            </summary>
+            <param name="Angle">The rotation angle in degrees</param>
+            <returns>A rotated vector</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.Rotate(GameClient.RelativeVector,GameClient.Degrees)">
+            <summary>
+            Rotates a vector about the origin
+            </summary>
+            <param name="pt">The vector to rotate</param>
+            <param name="Angle">The rotation angle in degrees</param>
+            <returns>A rotated vector</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.Rotate(GameClient.Radians)">
+            <summary>
+            Rotates a vector about the origin
+            </summary>
+            <param name="Angle">The rotation angle in radians</param>
+            <returns>A rotated vector</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.op_Explicit(GameClient.RelativeVector)~GameClient.AbsolutePoint">
+            <summary>
+            Converts an relative point into an absolute one
+            </summary>
+            <param name="relPt">the relative vector</param>
+            <returns>An absolute point constructed by offseting relPt from the world origin</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.op_Addition(GameClient.RelativeVector,GameClient.RelativeVector)">
+            <summary>
+            Adds two RelativeVectors (Vector1 + Vector2)
+            </summary>
+            <param name="L">Vector 1</param>
+            <param name="R">Vector 2</param>
+            <returns>The sum of both vectors</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.op_Subtraction(GameClient.RelativeVector,GameClient.RelativeVector)">
+            <summary>
+            Subtracts one RelativeVector from another (Vector1 - Vector2)
+            </summary>
+            <param name="L">Vector1</param>
+            <param name="R">Vector2</param>
+            <returns>The difference between two vectors</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.op_Multiply(GameClient.RelativeVector,System.Single)">
+            <summary>
+            Scales a RelativeVector by a scalar amount
+            </summary>
+            <param name="L">Vector</param>
+            <param name="R">Scale factor</param>
+            <returns>Scaled vector</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.op_Multiply(System.Single,GameClient.RelativeVector)">
+            <summary>
+            Scales a RelativeVector by a scalar amount
+            </summary>
+            <param name="L">Scale factor</param>
+            <param name="R">Vector</param>
+            <returns>Scaled vector</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.op_Division(GameClient.RelativeVector,System.Single)">
+            <summary>
+            Scales a RelativeVector by a scalar amount
+            </summary>
+            <param name="L">Vector</param>
+            <param name="R">Scale factor</param>
+            <returns>Scaled vector</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.DotProduct(GameClient.RelativeVector,GameClient.RelativeVector)">
+            <summary>
+            The dot product of two vectors (scalar product)
+            </summary>
+            <param name="L">Vector1</param>
+            <param name="R">Vector2</param>
+            <returns>The resultant dot product</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.DotProduct(GameClient.RelativeVector)">
+            <summary>
+            Calculates the dot product between this and another RelativeVector
+            </summary>
+            <param name="R">The other vector</param>
+            <returns>The resultant dot product</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.CrossProduct(GameClient.RelativeVector,GameClient.RelativeVector)">
+            <summary>
+            The meaning of a 2D Cross-Product is a bit fuzzy, but we are using:
+            (L.X * R.Y) - (L.Y * R.X)
+            </summary>
+            <param name="L">Vector1</param>
+            <param name="R">Vector2</param>
+            <returns>The resultant cross product</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.CrossProduct(GameClient.RelativeVector)">
+            <summary>
+            The meaning of a 2D Cross-Product is a bit fuzzy, but we are using:
+            (X * R.Y) - (Y * R.X)
+            </summary>
+            <param name="R">Vector2</param>
+            <returns>The resultant cross product</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.Length">
+            <summary>
+            The length of the vector Sqrt(X^2 + Y^2)
+            </summary>
+            <returns>The length of the vector</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.LengthSquared">
+            <summary>
+            The squared-length of the vector X^2 + Y^2
+            </summary>
+            <returns>The squared-length of the vector</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.Normalize">
+            <summary>
+            Normalizes the vector to unit-length
+            </summary>
+        </member>
+        <member name="M:GameClient.RelativeVector.Normalize(GameClient.RelativeVector)">
+            <summary>
+            Returns a normalized vector with unit-length
+            </summary>
+            <param name="source">The source vector to be normalized</param>
+            <returns>A normalized vector with unit-length</returns>
+        </member>
+        <member name="M:GameClient.RelativeVector.ToString">
+            <summary>
+            A friendly string formatted version of the vector
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:GameClient.RelativeVector.X">
+            <summary>
+            The X component of the vector
+            </summary>
+        </member>
+        <member name="P:GameClient.RelativeVector.Y">
+            <summary>
+            The Y component of the vector
+            </summary>
+        </member>
+        <member name="T:GameClient.AbsolutePoint">
+            <summary>
+            A position in 2d World space
+            </summary>
+        </member>
+        <member name="M:GameClient.AbsolutePoint.#ctor(System.Single,System.Single)">
+            <summary>
+            Constructs a vector with a specific X and Y component
+            </summary>
+            <param name="X"></param>
+            <param name="Y"></param>
+        </member>
+        <member name="M:GameClient.AbsolutePoint.op_Explicit(GameClient.AbsolutePoint)~GameClient.RelativeVector">
+            <summary>
+            Returns the offset of an AbsolutePoint from the origin as a relative vector
+            </summary>
+            <param name="absPt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GameClient.AbsolutePoint.op_Addition(GameClient.AbsolutePoint,GameClient.RelativeVector)">
+            <summary>
+            Offsets an AbsolutePoint by a RelativeVector and returns a new position
+            </summary>
+            <param name="L">A point in 2D space</param>
+            <param name="R">A relative offset</param>
+            <returns>The newly offsetted point</returns>
+        </member>
+        <member name="M:GameClient.AbsolutePoint.op_Subtraction(GameClient.RelativeVector,GameClient.AbsolutePoint)">
+            <summary>
+            Offsets an AbsolutePoint by a RelativeVector and returns a new position
+            </summary>
+            <param name="L">A relative offset</param>
+            <param name="R">A point in 2D space</param>
+            <returns>The newly offsetted point</returns>
+        </member>
+        <member name="M:GameClient.AbsolutePoint.op_Addition(GameClient.RelativeVector,GameClient.AbsolutePoint)">
+            <summary>
+            Offsets an AbsolutePoint by a RelativeVector and returns a new position
+            </summary>
+            <param name="L">A relative offset</param>
+            <param name="R">A point in 2D space</param>
+            <returns>The newly offsetted point</returns>
+        </member>
+        <member name="M:GameClient.AbsolutePoint.op_Subtraction(GameClient.AbsolutePoint,GameClient.RelativeVector)">
+            <summary>
+            Offsets an AbsolutePoint by a RelativeVector and returns a new position
+            </summary>
+            <param name="L">A point in 2D space</param>
+            <param name="R">A relative offset</param>
+            <returns>The newly offsetted point</returns>
+        </member>
+        <member name="M:GameClient.AbsolutePoint.op_Subtraction(GameClient.AbsolutePoint,GameClient.AbsolutePoint)">
+            <summary>
+            Computes The difference between two points as a RelativeVector
+            </summary>
+            <param name="L">A point in 2D space</param>
+            <param name="R">Another point in 2D space</param>
+            <returns>The offset between the two points</returns>
+        </member>
+        <member name="M:GameClient.AbsolutePoint.Distance(GameClient.AbsolutePoint)">
+            <summary>
+            The scalar distance between this point and another in 2D space
+            </summary>
+            <param name="P2">The other point</param>
+            <returns>The scalar distance</returns>
+        </member>
+        <member name="M:GameClient.AbsolutePoint.Distance(GameClient.AbsolutePoint,GameClient.AbsolutePoint)">
+            <summary>
+            The scalar distance between two points in 2D space
+            </summary>
+            <param name="P1">Point1</param>
+            <param name="P2">Point2</param>
+            <returns>The scalar distance</returns>
+        </member>
+        <member name="M:GameClient.AbsolutePoint.DistanceSquared(GameClient.AbsolutePoint)">
+            <summary>
+            The scalar distance-squared between this and another point in 2D space. Saves on the square root!
+            </summary>
+            <param name="P2">Point2</param>
+            <returns>The scalar distance-squared</returns>
+        </member>
+        <member name="M:GameClient.AbsolutePoint.DistanceSquared(GameClient.AbsolutePoint,GameClient.AbsolutePoint)">
+            <summary>
+            The scalar distance-squared between two points in 2D space. Saves on the square root!
+            </summary>
+            <param name="P1">Point1</param>
+            <param name="P2">Point2</param>
+            <returns>The scalar distance-squared</returns>
+        </member>
+        <member name="M:GameClient.AbsolutePoint.IsIntersectingLine(GameClient.AbsolutePoint,GameClient.AbsolutePoint,GameClient.AbsolutePoint,System.Single)">
+            <summary>
+            Determines if a point is intersecting a capped line segment with a specified thickness
+            </summary>
+            <param name="point">The point we are testing</param>
+            <param name="endpoint1">The first endpoint of the line segment</param>
+            <param name="endpoint2">The second endpoint of the line segment</param>
+            <param name="LineWidth">The thickness of the line in world space</param>
+            <returns>Returns true if the point is contained within the line segment</returns>
+        </member>
+        <member name="M:GameClient.AbsolutePoint.ToString">
+            <summary>
+            The friendly string formatted version of this point
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:GameClient.AbsolutePoint.X">
+            <summary>
+            The X component of the vector
+            </summary>
+        </member>
+        <member name="P:GameClient.AbsolutePoint.Y">
+            <summary>
+            The Y component of the vector
+            </summary>
+        </member>
+        <member name="T:GameClient.PointExtensions">
+            <summary>
+            Some helper extension methods for operating on points
+            </summary>
+        </member>
+        <member name="M:GameClient.PointExtensions.Centroid(System.Collections.Generic.IEnumerable{GameClient.AbsolutePoint})">
+            <summary>
+            Returns the position of the 2D centroid of a set of points
+            </summary>
+            <param name="points">The 2D points we are calculating the centroid of</param>
+            <returns>The position of the centroid</returns>
+        </member>
+        <member name="M:GameClient.PointExtensions.Average(System.Collections.Generic.IEnumerable{GameClient.AbsolutePoint})">
+            <summary>
+            Returns the average position of a collection points
+            </summary>
+            <param name="points">The 2D points we are calculating the average of</param>
+            <returns>The position of the average</returns>
+        </member>
+        <member name="M:GameClient.PointExtensions.ToWaypoints(System.Collections.Generic.IEnumerable{GameClient.AbsolutePoint},GameClient.WaypointBehavior)">
+            <summary>
+            Converts a set of points into a set of waypoints with a specified WaypointBehavior
+            </summary>
+            <param name="points">The source collection</param>
+            <param name="behavior">The default behavior to apply to all waypoints</param>
+            <returns>A series of waypoints</returns>
+        </member>
+        <member name="M:GameClient.PointExtensions.IsIntersectingLine(GameClient.AbsolutePoint,GameClient.AbsolutePoint,GameClient.AbsolutePoint,System.Single,System.Boolean,System.Boolean)">
+            <summary>
+            Determines if a point is intersecting a capped line segment with a specified thickness
+            </summary>
+            <param name="point">The point we are testing</param>
+            <param name="endpoint1">The first endpoint of the line segment</param>
+            <param name="endpoint2">The second endpoint of the line segment</param>
+            <param name="LineWidth">The thickness of the line in world space</param>
+            <param name="startCap">Whether or not to include the semicircle beyond the start point</param>
+            <param name="endCap">Whether or not to include the semicircle beyond the end point</param>
+            <returns>Returns true if the point is contained within the line segment</returns>
+        </member>
+        <member name="M:GameClient.PointExtensions.IsIntersectingLines(GameClient.AbsolutePoint,System.Collections.Generic.IEnumerable{GameClient.AbsolutePoint},System.Single)">
+            <summary>
+            Determines if a point is intersecting a path consisting of capped line segment with a specified thickness
+            </summary>
+            <param name="pt">The point we are testing</param>
+            <param name="points">A collection of points making up a path</param>
+            <param name="LineWidth">The thickness of the line in world space</param>
+            <returns>Returns true if the point is contained within the path's segments</returns>
+        </member>
+        <member name="M:GameClient.PointExtensions.IsIntersectingLines(GameClient.AbsolutePoint,System.Collections.Generic.IEnumerable{GameClient.Waypoint},System.Single)">
+            <summary>
+            Determines if a point is intersecting a path consisting of capped line segment with a specified thickness
+            </summary>
+            <param name="pt">The point we are testing</param>
+            <param name="points">A collection of Waypoints making up a path</param>
+            <param name="LineWidth">The thickness of the line in world space</param>
+            <returns>Returns true if the point is contained within the path's segments</returns>
+        </member>
+        <member name="M:GameClient.PointExtensions.IsIntersectingPoint(System.Collections.Generic.IEnumerable{GameClient.AbsolutePoint},GameClient.AbsolutePoint,System.Single)">
+            <summary>
+            Determines if a point is intersecting a path consisting of capped line segment with a specified thickness
+            </summary>
+            <param name="points">A collection of points making up a path</param>
+            <param name="pt">The point we are testing</param>
+            <param name="LineWidth">The thickness of the line in world space</param>
+            <returns>Returns true if the point is contained within the path's segments</returns>
+        </member>
+        <member name="M:GameClient.PointExtensions.IsIntersectingPoint(System.Collections.Generic.IEnumerable{GameClient.Waypoint},GameClient.AbsolutePoint,System.Single)">
+            <summary>
+            Determines if a point is intersecting a path consisting of capped line segment with a specified thickness
+            </summary>
+            <param name="points">A collection of points making up a path</param>
+            <param name="pt">The point we are testing</param>
+            <param name="LineWidth">The thickness of the line in world space</param>
+            <returns>Returns true if the point is contained within the path's segments</returns>
+        </member>
+        <member name="M:GameClient.PointExtensions.DistanceToPoint(GameClient.DebugLine,GameClient.AbsolutePoint)">
+            <summary>
+            Calculates the distance of a point from a DebugLine
+            </summary>
+            <param name="line">Represents a line segment</param>
+            <param name="point">A 2d point</param>
+            <returns>The shortest distance between a point and the line segment</returns>
+        </member>
+        <member name="M:GameClient.PointExtensions.DistanceToLine(GameClient.AbsolutePoint,GameClient.AbsolutePoint,GameClient.AbsolutePoint)">
+            <summary>
+            Calculates the distance of a point from a line defined by two other points
+            </summary>
+            <param name="point">A 2d point</param>
+            <param name="l1">The first line endpoint</param>
+            <param name="l2">The second line endpoint</param>
+            <returns>The shortest distance between a point and the line segment</returns>
+        </member>
+        <member name="M:GameClient.PointExtensions.DistanceToLine(GameClient.AbsolutePoint,GameClient.DebugLine)">
+            <summary>
+            Calculates the distance of a point from a DebugLine
+            </summary>
+            <param name="point">A 2d point</param>
+            <param name="line">Represents a line segment</param>
+            <returns>The shortest distance between a point and the line segment</returns>
+        </member>
+        <member name="T:GameClient.Objects.Battery">
+            <summary>
+            A battery in the game world which can be collected in order to restore power
+            </summary>
+        </member>
+    </members>
+</doc>
